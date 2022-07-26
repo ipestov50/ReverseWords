@@ -70,8 +70,7 @@ extension ViewController {
         
         // Scroll View
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.autoresizingMask = .flexibleWidth
-        scrollView.backgroundColor = .green
+//        scrollView.backgroundColor = .green
         scrollView.alwaysBounceHorizontal = true
         
         
