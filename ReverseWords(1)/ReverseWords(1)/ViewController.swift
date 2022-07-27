@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         style()
         layout()
         setupNavBar()
+        setupScrollView()
     }
 }
 
@@ -46,7 +47,7 @@ extension ViewController {
         bodyLabel.text = "This application will reverse your words. Please type text below"
         bodyLabel.adjustsFontSizeToFitWidth = true
         bodyLabel.numberOfLines = 0
-        bodyLabel.textColor = .gray
+        bodyLabel.textColor = .systemGray
         bodyLabel.textAlignment = .center
         
         
@@ -68,11 +69,6 @@ extension ViewController {
         reversedTextLabel.numberOfLines = 1
         reversedTextLabel.textColor = .systemBlue
         
-        // Scroll View
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-//        scrollView.backgroundColor = .green
-        scrollView.alwaysBounceHorizontal = true
-        
         
         // Button
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -81,9 +77,9 @@ extension ViewController {
         button.setTitle("Reverse", for: .normal)
         button.titleLabel?.textColor = .white
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        
-        
+
     }
+    
     
     private func layout() {
         
@@ -91,8 +87,6 @@ extension ViewController {
         view.addSubview(bodyLabel)
         view.addSubview(textField)
         view.addSubview(dividerView)
-        view.addSubview(scrollView)
-        scrollView.addSubview(reversedTextLabel)
         view.addSubview(button)
         
         
@@ -119,14 +113,6 @@ extension ViewController {
             dividerView.heightAnchor.constraint(equalToConstant: 1),
             dividerView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 0),
             
-            // Scroll View
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 364),
-            scrollView.leftAnchor.constraint(equalTo: textField.leftAnchor, constant: 0),
-            scrollView.rightAnchor.constraint(equalTo: textField.rightAnchor, constant: 0),
-            scrollView.bottomAnchor.constraint(equalTo: view.topAnchor, constant: -0),
-            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            scrollView.heightAnchor.constraint(equalTo: textField.heightAnchor),
-            
             // Button
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -66),
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
@@ -137,6 +123,31 @@ extension ViewController {
     
     private func setupNavBar() {
         title = "Reverse Words"
+    }
+    
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(reversedTextLabel)
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let contentG = scrollView.contentLayoutGuide
+        let frameG = scrollView.frameLayoutGuide
+        
+        NSLayoutConstraint.activate([
+            scrollView.bottomAnchor.constraint(equalTo: textField.bottomAnchor, constant: 40.0),
+            scrollView.leadingAnchor.constraint(equalTo: textField.leadingAnchor, constant: 0),
+            scrollView.trailingAnchor.constraint(equalTo: textField.trailingAnchor, constant: 0),
+            scrollView.heightAnchor.constraint(equalToConstant: 30.0),
+            
+            reversedTextLabel.topAnchor.constraint(equalTo: contentG.topAnchor, constant: 0.0),
+            reversedTextLabel.leadingAnchor.constraint(equalTo: contentG.leadingAnchor, constant: 0.0),
+            reversedTextLabel.trailingAnchor.constraint(equalTo: contentG.trailingAnchor, constant: 0.0),
+            reversedTextLabel.bottomAnchor.constraint(equalTo: contentG.bottomAnchor, constant: 0.0),
+            
+            reversedTextLabel.heightAnchor.constraint(equalTo: frameG.heightAnchor)
+        
+        ])
     }
     
 }
