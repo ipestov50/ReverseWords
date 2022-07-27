@@ -11,17 +11,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        let vc = ViewController()
-        let navController = UINavigationController(rootViewController: vc)
+        let controller = ViewController()
+        let navController = UINavigationController(rootViewController: controller)
         window?.rootViewController = navController
         return true
     }
-    
 }
-

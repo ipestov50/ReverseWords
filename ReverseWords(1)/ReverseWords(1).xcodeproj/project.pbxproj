@@ -68,6 +68,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96939741289017D8006BF575 /* Build configuration list for PBXNativeTarget "ReverseWords(1)" */;
 			buildPhases = (
+				967E0BB228915D7D00827A96 /* SwiftLint */,
 				96939729289017D3006BF575 /* Sources */,
 				9693972A289017D3006BF575 /* Frameworks */,
 				9693972B289017D3006BF575 /* Resources */,
@@ -125,6 +126,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		967E0BB228915D7D00827A96 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		96939729289017D3006BF575 /* Sources */ = {

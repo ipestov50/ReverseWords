@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class ViewController: UIViewController {
     
     let titleLabel = UILabel()
@@ -117,7 +116,7 @@ extension ViewController {
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -66),
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
             button.widthAnchor.constraint(equalToConstant: 343),
-            button.heightAnchor.constraint(equalToConstant: 66),
+            button.heightAnchor.constraint(equalToConstant: 66)
         ])
     }
     
@@ -218,7 +217,4 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
 }
-
-
-
 
