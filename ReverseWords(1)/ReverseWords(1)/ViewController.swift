@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class ViewController: UIViewController {
     
     let titleLabel = UILabel()
@@ -117,7 +116,7 @@ extension ViewController {
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -66),
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
             button.widthAnchor.constraint(equalToConstant: 343),
-            button.heightAnchor.constraint(equalToConstant: 66),
+            button.heightAnchor.constraint(equalToConstant: 66)
         ])
     }
     
@@ -156,21 +155,20 @@ extension ViewController {
     
     @objc func buttonTapped() {
         
-        reversedTextLabel.text = reverseText()
-        
         if tapped {
             button.setTitle("Reverse", for: .normal)
             reversedTextLabel.text = ""
         } else {
             button.setTitle("Clear", for: .normal)
             dividerView.backgroundColor = .separator
+            reversedTextLabel.text = reverseText()
         }
         tapped.toggle()
     }
     
     func reverseText() -> String {
         let string = textField.text
-        let reversed = String(string!.reversed())
+        let reversed = string?.split(separator: " ").map { String($0.reversed()) }.joined(separator: " ") ?? ""
         
         return reversed
     }
@@ -218,7 +216,4 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
 }
-
-
-
 
