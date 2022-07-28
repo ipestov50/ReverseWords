@@ -155,14 +155,13 @@ extension ViewController {
     
     @objc func buttonTapped() {
         
-        reversedTextLabel.text? = reverseText()
-        
         if tapped {
             button.setTitle("Reverse", for: .normal)
             reversedTextLabel.text = ""
         } else {
             button.setTitle("Clear", for: .normal)
             dividerView.backgroundColor = .separator
+            reversedTextLabel.text = reverseText()
         }
         tapped.toggle()
     }
