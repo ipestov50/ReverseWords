@@ -155,7 +155,7 @@ extension ViewController {
     
     @objc func buttonTapped() {
         
-        reversedTextLabel.text = reverseText()
+        reversedTextLabel.text? = reverseText()
         
         if tapped {
             button.setTitle("Reverse", for: .normal)
@@ -169,7 +169,7 @@ extension ViewController {
     
     func reverseText() -> String {
         let string = textField.text
-        let reversed = String(string!.reversed())
+        let reversed = string?.split(separator: " ").map { String($0.reversed()) }.joined(separator: " ") ?? ""
         
         return reversed
     }
